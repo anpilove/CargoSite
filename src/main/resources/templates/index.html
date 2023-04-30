@@ -28,18 +28,20 @@
       <div class="div56">
         Здравствуйте! Для регистрации нажмите на кнопку “Регистрация”
       </div>
-      <form class="login-form">
-        <input class="email" type="email" placeholder="Почта" required />
+      <form th:action="@{'/login'}" th:object="${UserCargo}" class="login-form">
+        <input th:field="*{login}" class="email" type="text" placeholder="Логин" required />
 
-        <input class="email" type="password" placeholder="Пароль" required />
+        <input th:field="*{password}" class="email" type="password" placeholder="Пароль" required />
 
-        <button class="button-login">
+        <button type="submit" class="button-login">
           <div class="div57">Войти</div>
         </button>
       </form>
-      <button class="button-login1">
-        <div class="div57">Регистрация</div>
-      </button>
+      <a th:href="@{'/registry'}" style="text-decoration: none">
+        <button class="button-login1">
+          <div class="div57">Регистрация</div>
+        </button>
+      </a>
     </div>
   </body>
 </html>

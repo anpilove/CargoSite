@@ -14,6 +14,8 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
+import java.util.Comparator;
+import java.util.Date;
 import java.util.List;
 
 @Controller
@@ -39,6 +41,12 @@ public class CargoController {
     public String showNewSessionForm(@ModelAttribute("UserCargo") UserCargo usercargo){
         return "registry";
     }
+    @RequestMapping(value = "/save_registry")
+    public String saveSession(@ModelAttribute("UserCargo") UserCargo usercargo){
+        usercargo.setRole(0);
+        userCargoService.save(usercargo);
+        return "redirect:/";
+    }
 
     @GetMapping(value="/login")
     public String login(@ModelAttribute("UserCargo") UserCargo usercargo, HttpSession session){
@@ -53,6 +61,18 @@ public class CargoController {
         List<Cargo> listCargo = cargoService.listAll(keyword);
         model.addAttribute("listCargo", listCargo);
         model.addAttribute("keyword", keyword);
+        String firstInputDate = listCargo.stream()
+                .min(Comparator.comparing(Cargo::getDataInput))
+                .map(Cargo::getDataInput)
+                .orElse(null);
+        model.addAttribute("firstInputDate", firstInputDate);
+
+
+        String latestInputDate = listCargo.stream()
+                .max(Comparator.comparing(Cargo::getDataInput))
+                .map(Cargo::getDataInput)
+                .orElse(null);
+        model.addAttribute("latestInputDate", latestInputDate);
         return "main-cargo";
     }
 

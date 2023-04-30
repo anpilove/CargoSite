@@ -23,15 +23,17 @@
   <body>
     <div class="registry">
       <div class="header2">
-        <div class="div31">Склад грузов</div>
+        <a th:href="@{'/'}" style="text-decoration: none">
+         <div class="div31">Склад грузов</div>
+        </a>
       </div>
       <div class="div32">Придумайте логин и пароль</div>
-      <form class="registry-form">
-        <input class="login" type="email" placeholder="Почта" required />
+      <form action="#" th:action="@{/save_registry}" th:object="${UserCargo}" class="registry-form">
+        <input th:field="*{login}" class="login" type="text" placeholder="Логин" required />
 
-        <input class="login" type="password" placeholder="Пароль" required />
+        <input th:field="*{password}" class="login" type="password" placeholder="Пароль" required />
 
-        <button class="button-registry">
+        <button type="submit" class="button-registry">
           <div class="div33">Зарегистрироваться</div>
         </button>
       </form>

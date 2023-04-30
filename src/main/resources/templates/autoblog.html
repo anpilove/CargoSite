@@ -23,20 +23,17 @@
   <body>
     <div class="autoblog2">
       <div class="header-about2">
-        <button class="button2">Главная</button>
+        <a th:href="@{'/main_cargo'}" style="text-decoration: none">
+          <button class="button2">Главная</button>
+        </a>
         <div class="frame">
           <div class="div30">Автоблог</div>
         </div>
       </div>
       <div class="frame-parent">
-        <button class="frame-button">
-          <button class="button2">
-            Административная панель управления блогом
-          </button>
-        </button>
-        <button class="frame-button">
-          <button class="button2">Главная страница блога</button>
-        </button>
+          <button class="frame-button button2">
+            Административная панель управления блогом</button>
+          <button class="frame-button button2">Главная страница блога</button>
       </div>
     </div>
   </body>

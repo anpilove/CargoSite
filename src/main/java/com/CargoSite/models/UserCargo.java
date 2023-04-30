@@ -13,7 +13,7 @@ import jakarta.persistence.Table;
 //        ) ENGINE=InnODB DEFAULT CHARSET=UTF8
 
 @Entity
-@Table(name="UserCargo", schema="warehouse")
+@Table(name="usercargo", schema="warehouse")
 public class UserCargo {
 
     @Id
@@ -24,6 +24,10 @@ public class UserCargo {
     private String password;
     @Column(name = "CLASS")
     private int role;
+
+    public UserCargo() {
+
+    }
 
     public String getLogin() {
         return login;

@@ -23,35 +23,37 @@
   <body>
     <div class="edit-cargo">
       <div class="header-about3">
-        <button class="button5">Главная</button>
+        <a th:href="@{'/main_cargo'}" style="text-decoration: none">
+          <button class="button5">Главная</button>
+        </a>
         <div class="frame-div">
           <div class="div34">Редактировать запись о грузе</div>
         </div>
       </div>
-      <form class="edit-employee-form1">
-        <input class="id4" type="text" placeholder="ID груза" />
+      <form th:action="@{/save_cargo}" th:object="${Cargo}" class="edit-employee-form1">
+        <input th:field="*{ID}" class="id4" type="text" placeholder="ID груза" />
 
-        <input class="schedule" type="text" placeholder="Название груза" />
+        <input th:field="*{nameLoad}" class="schedule" type="text" placeholder="Название груза" />
 
-        <input class="schedule" type="text" placeholder="Состав груза" />
+        <input th:field="*{content}" class="schedule" type="text" placeholder="Состав груза" />
 
-        <input
+        <input th:field="*{cityFrom}"
           class="schedule"
           type="text"
           placeholder="Город отправки груза"
         />
 
-        <input
+        <input th:field="*{cityTo}"
           class="schedule"
           type="text"
           placeholder="Город прибытия груза"
         />
 
-        <input class="schedule" type="text" placeholder="Дата отправки груза" />
+        <input th:field="*{dataInput}" class="schedule" type="text" placeholder="Дата отправки груза" />
 
-        <input class="schedule" type="text" placeholder="Дата прибытия груза" />
+        <input th:field="*{dataOutput}" class="schedule" type="text" placeholder="Дата прибытия груза" />
 
-        <button class="button-edit1">
+        <button type="submit" class="button-edit1">
           <div class="div35">Редактировать</div>
         </button>
       </form>

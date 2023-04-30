@@ -38,6 +38,7 @@
   justify-content: flex-start;
 }
 .search12 {
+  font-size: var(--font-size-17xl);
   border: 1px solid var(--color-gray-300);
   background-color: var(--color-whitesmoke-100);
   left: -1px;
@@ -217,7 +218,7 @@
 }
 .statistics2 {
   width: 1920px;
-  height: 227px;
+  height: 600px;
   flex-shrink: 0;
   padding: 0 var(--padding-3xs);
   box-sizing: border-box;

@@ -23,43 +23,45 @@
   <body>
     <div class="new-cargo">
       <div class="header-about4">
-        <button class="button6">Главная</button>
+        <a th:href="@{'/main_cargo'}" style="text-decoration: none">
+          <button class="button6">Главная</button>
+        </a>
         <div class="wrapper2">
-          <div class="div36">Добавить нового запись о грузе</div>
+          <div class="div36">Добавить новую запись о грузе</div>
         </div>
       </div>
-      <form class="new-employee-form1">
-        <input class="id5" type="text" placeholder="ID груза" />
+      <form th:action="@{/save_cargo}" th:object="${Cargo}" class="new-employee-form1">
+        <input th:field="*{ID}" class="id5" type="text" placeholder="ID груза" />
 
-        <input class="last-name3" type="text" placeholder="Название груза" />
+        <input th:field="*{nameLoad}" class="last-name3" type="text" placeholder="Название груза" />
 
-        <input class="last-name3" type="text" placeholder="Состав груза" />
+        <input th:field="*{content}" class="last-name3" type="text" placeholder="Состав груза" />
 
-        <input
+        <input th:field="*{cityFrom}"
           class="last-name3"
           type="text"
           placeholder="Город отправки груза"
         />
 
-        <input
+        <input th:field="*{cityTo}"
           class="last-name3"
           type="text"
           placeholder="Город прибытия груза"
         />
 
-        <input
+        <input th:field="*{dataInput}"
           class="last-name3"
           type="text"
           placeholder="Дата отправки груза"
         />
 
-        <input
+        <input th:field="*{dataOutput}"
           class="last-name3"
           type="text"
           placeholder="Дата прибытия груза"
         />
 
-        <button class="button-add1">
+        <button type="submit" class="button-add1">
           <div class="div37">Добавить</div>
         </button>
       </form>
