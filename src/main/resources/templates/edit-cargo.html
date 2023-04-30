@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="initial-scale=1, width=device-width" />
+    <link rel="stylesheet" href="/global.css" />
+    <link rel="stylesheet" href="/edit-cargo.css" />
+
+    <style>
+      @font-face {
+        :font-family: "ALS Story";
+        src: url("/ALS Story Regular.otf");
+        font-weight: 400;
+      }
+      @font-face {
+        :font-family: "ALS Lavanda";
+        src: url("/ALS Lavanda.otf");
+        font-weight: 400;
+      }
+    </style>
+    <title>Изменить запись о грузе</title>
+  </head>
+  <body>
+    <div class="edit-cargo">
+      <div class="header-about3">
+        <a th:href="@{'/main_cargo'}" style="text-decoration: none">
+          <button class="button5">Главная</button>
+        </a>
+        <div class="frame-div">
+          <div class="div34">Редактировать запись о грузе</div>
+        </div>
+      </div>
+      <form th:action="@{/save_cargo}" th:object="${Cargo}" class="edit-employee-form1">
+        <input th:field="*{ID}" class="id4" type="text" placeholder="ID груза" />
+
+        <input th:field="*{nameLoad}" class="schedule" type="text" placeholder="Название груза" />
+
+        <input th:field="*{content}" class="schedule" type="text" placeholder="Состав груза" />
+
+        <input th:field="*{cityFrom}"
+          class="schedule"
+          type="text"
+          placeholder="Город отправки груза"
+        />
+
+        <input th:field="*{cityTo}"
+          class="schedule"
+          type="text"
+          placeholder="Город прибытия груза"
+        />
+
+        <input th:field="*{dataInput}" class="schedule" type="text" placeholder="Дата отправки груза" />
+
+        <input th:field="*{dataOutput}" class="schedule" type="text" placeholder="Дата прибытия груза" />
+
+        <button type="submit" class="button-edit1">
+          <div class="div35">Редактировать</div>
+        </button>
+      </form>
+    </div>
+  </body>
+</html>

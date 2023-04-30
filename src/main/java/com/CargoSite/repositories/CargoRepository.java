@@ -1,6 +1,6 @@
 package com.CargoSite.repositories;
 
-import com.CargoSite.controller.Cargo;
+import com.CargoSite.models.Cargo;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 
