@@ -36,6 +36,7 @@
 .search,
 .search1,
 .search2 {
+  font-size: var(--font-size-24xl);
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
@@ -57,6 +58,7 @@
 .search2,
 .search3,
 .search4 {
+  font-size: var(--font-size-24xl);
   border: 1px solid var(--color-gray-300);
   background-color: var(--color-whitesmoke-100);
   border-radius: var(--br-3xs);
@@ -160,6 +162,7 @@
   align-items: center;
 }
 .element {
+  margin: 10px;
   border-radius: var(--br-sm);
   background-color: var(--color-palegoldenrod-100);
   border: 1px solid var(--color-dimgray-100);
@@ -188,9 +191,12 @@
   flex-direction: column;
   align-items: flex-start;
 }
+.class_for_tbody {
+  gap: 10px;
+}
 .statistics {
   width: 1920px;
-  height: 227px;
+  height: 600px;
   flex-shrink: 0;
   padding: 0 var(--padding-3xs);
   box-sizing: border-box;

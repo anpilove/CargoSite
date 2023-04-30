@@ -31,9 +31,14 @@
         </div>
       </div>
       <div class="frame-parent">
-          <button class="frame-button button2">
-            Административная панель управления блогом</button>
+        <form th:action="@{'/check'}">
+            <button type="submit" class="frame-button button2">
+              Административная панель управления блогом</button>
+        </form>
+
+        <a th:href="@{'/autoblog_main'}" style="text-decoration: none">
           <button class="frame-button button2">Главная страница блога</button>
+        </a>
       </div>
     </div>
   </body>

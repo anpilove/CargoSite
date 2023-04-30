@@ -8,6 +8,6 @@ import java.util.List;
 
 public interface PostRepository extends JpaRepository<Post, Long> {
 
-    @Query("SELECT p FROM Post p WHERE CONCAT(p.id, ' ', p.title, ' ', p.author , ' ', p.dateCreated) LIKE %?1%")
+    @Query("SELECT p FROM Post p WHERE CONCAT(p.id, ' ', p.title, ' ', p.author , ' ', p.dateCreated, ' ', p.content) LIKE %?1%")
     List<Post> search(String keyword);
 }

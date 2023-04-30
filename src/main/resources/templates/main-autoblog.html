@@ -23,48 +23,233 @@
   <body>
     <div class="main-autoblog">
       <div class="header">
-        <button class="exit">Выход</button>
-        <button class="exit">Склад</button>
-        <div class="autoblog">
-          <div class="div4">Автоблог</div>
-        </div>
+        <a th:href="@{'/'}" style="text-decoration: none">
+          <button class="exit">Выход</button>
+        </a>
+        <a th:href="@{'/main_cargo'}" style="text-decoration: none">
+          <button class="exit">Склад</button>
+        </a>
+        <a th:href="@{'/autoblog_main'}" style="text-decoration: none">
+          <div class="autoblog">
+            <div class="div4">Автоблог</div>
+          </div>
+        </a>
         <form class="search-group">
-          <input class="search" type="text" placeholder="Поиск" required />
+          <input class="search" type="text" placeholder="Поиск по дате" required />
 
-          <input class="search1" type="text" placeholder="Поиск" required />
+          <input class="search1" type="text" placeholder="По названию" required />
 
-          <input class="search2" type="text" placeholder="Поиск" required />
+          <input class="search2" type="text" placeholder="По дате и названию" required />
 
-          <input class="search3" type="text" placeholder="Поиск" required />
+          <input class="search3" type="text" placeholder="По тексту" required />
 
-          <input class="search4" type="text" placeholder="Поиск" required />
+          <input class="search4" type="text" placeholder="По дате и тексту" required />
 
-          <input class="search3" type="text" placeholder="Поиск" required />
+          <input class="search3" type="text" placeholder="По всему" required />
 
-          <input class="button-search" type="text" />
+          <input class="button-search" type="submit" value="Найти"/>
         </form>
       </div>
-      <div class="block-of-elements">
-        <div class="head-of-elements">
-          <div class="id2">ID</div>
-          <div class="div5">Название</div>
-          <div class="div6">Автор</div>
-          <div class="div7">Дата</div>
-          <div class="div5">Текст</div>
-        </div>
-        <div class="element">
-          <div class="id2">0</div>
-          <div class="div5">Продажа</div>
-          <div class="div4">Кирилл</div>
-          <div class="div7">12.12.2012</div>
-          <div class="div13">Продам автомобиль недорого</div>
-        </div>
-      </div>
+
+      <table id="1" class="block-of-elements">
+        <thead>
+        <tr class="head-of-elements">
+          <th class="id2" scope="col">ID</th>
+          <th class="div5" scope="col">Название</th>
+          <th class="div6" scope="col">Автор</th>
+          <th class="div7" scope="col">Дата</th>
+          <th class="div5" scope="col">Текст</th>
+        </tr>
+        </thead>
+        <tbody class="class_for_tbody tbody">
+        <tr th:each="Post: ${listPost}" class="element tr">
+          <th scope="row" class="id2 th" th:text="${Post.id}">ID</th>
+          <th scope="row" class="div5 th" th:text="${Post.title}">Название</th>
+          <th scope="row" class="div4 th" th:text="${Post.author}">Автор</th>
+          <th scope="row" class="div7 th" th:text="${Post.dateCreated}">Дата</th>
+          <th scope="row" class="div13 th" th:text="${Post.content}">Текст</th>
+        </tr>
+        </tbody>
+      </table>
+
       <div class="statistics">
-        <div class="div4">Количество записей: 5</div>
-        <div class="div4">Первая отправка: 12.05.2012</div>
-        <div class="div16">Последняя отправка: 12.05.2022</div>
+        <div class="div4">Количество записей: <p th:text="${listPost.size()}"></p></div>
+        <div class="div4">Первый пост: <p th:text="${firstDate}"></p></div>
+        <div class="div16">Последний пост: <p th:text="${latestDate}"></p></div>
       </div>
     </div>
+    <div class="container">
+      <canvas id="hist" width="1920" height="800"></canvas>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.bundle.min.js"></script>
+    <script type="text/javascript">
+      function getRandomInt(min, max) {
+        return Math.floor(Math.random() * (max - min)) + min;
+      }
+
+      labels = []
+      data = []
+      let tr = document.getElementsByClassName('tr');
+      for (let i = 0; i < tr.length; i++) {
+        let t = tr[i].getElementsByClassName('th')[2].textContent;
+        if (!labels.includes(t)) {
+          let ind = Math.max(labels.length, 0);
+          labels[ind] = t;
+          data[ind] = 1;
+        } else {
+          let ind = labels.indexOf(t);
+          data[ind] += 1;
+        }
+      }
+
+      let colors = [];
+      for (let i = 0; i < labels.length; i++) {
+        let temp = 'rgba(' + getRandomInt(0, 256) + ', ' + getRandomInt(0, 256) + ', ' + getRandomInt(0, 256) + ', 1)';
+        while (colors.includes(temp)) {
+          temp = 'rgba(' + getRandomInt(0, 256) + ', ' + getRandomInt(0, 256) + ', ' + getRandomInt(0, 256) + ', 1)';
+        }
+        colors[i] = temp;
+      }
+
+      let dataset = {
+        label: 'Авторы',
+        data: data,
+        backgroundColor: colors,
+        borderWidth: 1,
+      }
+
+      Chart.defaults.global.defaultFontColor = 'black';
+
+      let ctx = document.getElementById('hist').getContext('2d');
+      let myChart = new Chart(ctx, {
+        type: 'bar',
+        data: {
+          labels: labels,
+          datasets: [dataset],
+        },
+        options: {
+          legend: {
+            display: false,
+          },
+          title: {
+            display: true,
+            text: 'Авторы',
+            color: 'black',
+            position: 'top',
+            fontSize: 24,
+            padding: 20,
+          },
+          scales: {
+            yAxes: [{
+              ticks: {
+                beginAtZero: true,
+                stepSize: 1,
+              },
+              scaleLabel: {
+                display: true,
+                labelString: 'Количество',
+                color: 'black',
+                fontSize: 18,
+              },
+            }],
+            xAxes: [{
+              scaleLabel: {
+                display: true,
+                labelString: 'Автор',
+                color: 'black',
+                fontSize: 18,
+              },
+            }],
+          },
+        },
+      });
+    </script>
+
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/tablesort/5.0.2/tablesort.min.js'></script>
+    <script>
+      /*!
+* tablesort v5.0.2 (2017-11-12)
+* http://tristen.ca/tablesort/demo/
+* Copyright (c) 2017 ; Licensed MIT
+*/
+      !function () {
+        function a(b, c) {
+          if (!(this instanceof a)) return new a(b, c);
+          if (!b || "TABLE" !== b.tagName) throw new Error("Element must be a table");
+          this.init(b, c || {})
+        }
+
+        var b = [], c = function (a) {
+          var b;
+          return window.CustomEvent && "function" == typeof window.CustomEvent ? b = new CustomEvent(a) : (b = document.createEvent("CustomEvent"), b.initCustomEvent(a, !1, !1, void 0)), b
+        }, d = function (a) {
+          return a.getAttribute("data-sort") || a.textContent || a.innerText || ""
+        }, e = function (a, b) {
+          return a = a.trim().toLowerCase(), b = b.trim().toLowerCase(), a === b ? 0 : a < b ? 1 : -1
+        }, f = function (a, b) {
+          return function (c, d) {
+            var e = a(c.td, d.td);
+            return 0 === e ? b ? d.index - c.index : c.index - d.index : e
+          }
+        };
+        a.extend = function (a, c, d) {
+          if ("function" != typeof c || "function" != typeof d) throw new Error("Pattern and sort must be a function");
+          b.push({name: a, pattern: c, sort: d})
+        }, a.prototype = {
+          init: function (a, b) {
+            var c, d, e, f, g = this;
+            if (g.table = a, g.thead = !1, g.options = b, a.rows && a.rows.length > 0) if (a.tHead && a.tHead.rows.length > 0) {
+              for (e = 0; e < a.tHead.rows.length; e++) if ("thead" === a.tHead.rows[e].getAttribute("data-sort-method")) {
+                c = a.tHead.rows[e];
+                break
+              }
+              c || (c = a.tHead.rows[a.tHead.rows.length - 1]), g.thead = !0
+            } else c = a.rows[0];
+            if (c) {
+              var h = function () {
+                g.current && g.current !== this && g.current.removeAttribute("aria-sort"), g.current = this, g.sortTable(this)
+              };
+              for (e = 0; e < c.cells.length; e++) f = c.cells[e], f.setAttribute("role", "columnheader"), "none" !== f.getAttribute("data-sort-method") && (f.tabindex = 0, f.addEventListener("click", h, !1), null !== f.getAttribute("data-sort-default") && (d = f));
+              d && (g.current = d, g.sortTable(d))
+            }
+          }, sortTable: function (a, g) {
+            var h = this, i = a.cellIndex, j = e, k = "", l = [], m = h.thead ? 0 : 1,
+                    n = a.getAttribute("data-sort-method"), o = a.getAttribute("aria-sort");
+            if (h.table.dispatchEvent(c("beforeSort")), g || (o = "ascending" === o ? "descending" : "descending" === o ? "ascending" : h.options.descending ? "descending" : "ascending", a.setAttribute("aria-sort", o)), !(h.table.rows.length < 2)) {
+              if (!n) {
+                for (; l.length < 3 && m < h.table.tBodies[0].rows.length;) k = d(h.table.tBodies[0].rows[m].cells[i]), k = k.trim(), k.length > 0 && l.push(k), m++;
+                if (!l) return
+              }
+              for (m = 0; m < b.length; m++) if (k = b[m], n) {
+                if (k.name === n) {
+                  j = k.sort;
+                  break
+                }
+              } else if (l.every(k.pattern)) {
+                j = k.sort;
+                break
+              }
+              for (h.col = i, m = 0; m < h.table.tBodies.length; m++) {
+                var p, q = [], r = {}, s = 0, t = 0;
+                if (!(h.table.tBodies[m].rows.length < 2)) {
+                  for (p = 0; p < h.table.tBodies[m].rows.length; p++) k = h.table.tBodies[m].rows[p], "none" === k.getAttribute("data-sort-method") ? r[s] = k : q.push({
+                    tr: k,
+                    td: d(k.cells[h.col]),
+                    index: s
+                  }), s++;
+                  for ("descending" === o ? q.sort(f(j, !0)) : (q.sort(f(j, !1)), q.reverse()), p = 0; p < s; p++) r[p] ? (k = r[p], t++) : k = q[p - t].tr, h.table.tBodies[m].appendChild(k)
+                }
+              }
+              h.table.dispatchEvent(c("afterSort"))
+            }
+          }, refresh: function () {
+            void 0 !== this.current && this.sortTable(this.current, !0)
+          }
+        }, "undefined" != typeof module && module.exports ? module.exports = a : window.Tablesort = a
+      }();
+    </script>
+    <script>
+      new Tablesort(document.getElementById('1'));
+    </script>
   </body>
 </html>

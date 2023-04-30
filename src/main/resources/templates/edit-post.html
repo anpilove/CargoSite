@@ -23,23 +23,25 @@
   <body>
     <div class="edit-post">
       <div class="header-about">
-        <button class="button">Главная</button>
+        <a th:href="@{'/autoblog_main_admin'}" style="text-decoration: none">
+          <button class="button">Главная</button>
+        </a>
         <div class="wrapper">
           <div class="div">Редактировать запись автоблога</div>
         </div>
       </div>
-      <form class="edit-employee-form">
-        <input class="id" type="text" placeholder="ID записи" />
+      <form th:action="@{/save_post}" th:object="${Post}" class="edit-employee-form">
+        <input th:field="*{id}" class="id" type="text" placeholder="ID записи" />
 
-        <input class="last-name" type="text" placeholder="Название записи" />
+        <input th:field="*{title}" class="last-name" type="text" placeholder="Название записи" />
 
-        <input class="last-name" type="text" placeholder="Дата" />
+        <input th:field="*{dateCreated}"  class="last-name" type="text" placeholder="Дата (2000-12-31 23:00:00)" />
 
-        <input class="last-name" type="text" placeholder="Кто добавил" />
+        <input th:field="*{author}"  class="last-name" type="text" placeholder="Кто добавил" />
 
-        <input class="rank" type="text" placeholder="Текст записи" />
+        <input th:field="*{content}" class="rank" type="text" placeholder="Текст записи" />
 
-        <button class="button-edit">
+        <button type="submit" class="button-edit">
           <div class="div1">Редактировать</div>
         </button>
       </form>

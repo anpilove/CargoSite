@@ -76,14 +76,14 @@ public class CargoController {
         return "main-cargo";
     }
 
-    @GetMapping("/new_cargo")
+    @RequestMapping("/new_cargo")
     public String showNewSessionForm(Model model){
         Cargo cargo = new Cargo();
         model.addAttribute("Cargo", cargo);
         return "new-cargo";
     }
 
-    @RequestMapping(value = "/save_cargo", method = RequestMethod.POST)
+    @RequestMapping(value = "/save_cargo")
     public String saveSession(@ModelAttribute("Session") Cargo cargo){
         cargoService.save(cargo);
         return "redirect:/main_cargo";
@@ -107,12 +107,12 @@ public class CargoController {
         return "autoblog";
     }
 
-    @GetMapping(value="/check")
+    @RequestMapping(value="/check") // надо дописать проверку
     public String login(@SessionAttribute("UserCargo") UserCargo usercargo){
-        if (usercargo.getRole() == 1) { // если ранг == 1, тогда это админ и мы его пускаем
+//        if (usercargo.getRole() == 1) { // если ранг == 1, тогда это админ и мы его пускаем
             return "redirect:/autoblog_main_admin";
-        }
-        else {return "redirect:/autoblog";}
+//        }
+//        else {return "redirect:/autoblog";}
     }
 
     @GetMapping("/autoblog_main")
@@ -120,6 +120,20 @@ public class CargoController {
         List<Post> listPost = postService.listAll(keyword);
         model.addAttribute("listPost", listPost);
         model.addAttribute("keyword", keyword);
+
+        String firstDate = listPost.stream()
+                .min(Comparator.comparing(Post::getDateCreated))
+                .map(Post::getDateCreated)
+                .orElse(null);
+        model.addAttribute("firstDate", firstDate);
+
+
+        String latestDate = listPost.stream()
+                .max(Comparator.comparing(Post::getDateCreated))
+                .map(Post::getDateCreated)
+                .orElse(null);
+        model.addAttribute("latestDate", latestDate);
+
         return "main-autoblog";
     }
 
@@ -128,6 +142,20 @@ public class CargoController {
         List<Post> listPost = postService.listAll(keyword);
         model.addAttribute("listPost", listPost);
         model.addAttribute("keyword", keyword);
+
+        String firstDate = listPost.stream()
+                .min(Comparator.comparing(Post::getDateCreated))
+                .map(Post::getDateCreated)
+                .orElse(null);
+        model.addAttribute("firstDate", firstDate);
+
+
+        String latestDate = listPost.stream()
+                .max(Comparator.comparing(Post::getDateCreated))
+                .map(Post::getDateCreated)
+                .orElse(null);
+        model.addAttribute("latestDate", latestDate);
+
         return "main-autoblog-admin";
     }
 
@@ -138,19 +166,25 @@ public class CargoController {
         return "new-post";
     }
 
-    @RequestMapping(value = "/save_post", method = RequestMethod.POST)
+    @RequestMapping(value = "/save_post")
     public String savePost(@ModelAttribute("Post") Post post){
         postService.save(post);
         return "redirect:/autoblog_main_admin";
     }
 
-    @GetMapping("/edit_post")
-    public String editPost(Model model){
-        Post post = new Post();
-        model.addAttribute("Post", post);
-        return "edit-post";
+    @RequestMapping("/edit_post/{id}")
+    public ModelAndView editPost(@PathVariable(name = "id") Long id){
+        ModelAndView mav = new ModelAndView("edit-post");
+        Post post = postService.get(id);
+        mav.addObject("Post", post);
+        return mav;
     }
 
+    @RequestMapping("/delete_post/{id}")
+    public String deletePost(@PathVariable(name = "id") Long id){
+        postService.delete(id);
+        return "redirect:/autoblog_main_admin";
+    }
 
 
 

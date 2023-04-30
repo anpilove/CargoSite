@@ -23,23 +23,25 @@
   <body>
     <div class="new-post">
       <div class="header-about1">
-        <button class="button1">Главная</button>
+        <a th:href="@{'/autoblog_main_admin'}" style="text-decoration: none">
+          <button class="button1">Главная</button>
+        </a>
         <div class="container">
           <div class="div2">Добавить новую запись в автоблог</div>
         </div>
       </div>
-      <form class="new-employee-form">
-        <input class="id1" type="text" placeholder="ID записи" />
+      <form th:action="@{/save_post}" th:object="${Post}" class="new-employee-form">
+        <input th:field="*{id}" class="id1" type="text" placeholder="ID записи" />
 
-        <input class="last-name1" type="text" placeholder="Название записи" />
+        <input th:field="*{title}" class="last-name1" type="text" placeholder="Название записи" />
 
-        <input class="last-name1" type="text" placeholder="Дата" />
+        <input th:field="*{dateCreated}" class="last-name1" type="text" placeholder="Дата (2000-12-31 23:00:00)" />
 
-        <input class="last-name1" type="text" placeholder="Кто добавил" />
+        <input th:field="*{author}" class="last-name1" type="text" placeholder="Кто добавил" />
 
-        <input class="rank1" type="text" placeholder="Текст записи" />
+        <input th:field="*{content}" class="rank1" type="text" placeholder="Текст записи" />
 
-        <button class="button-add">
+        <button type="submit" class="button-add">
           <div class="div3">Добавить</div>
         </button>
       </form>

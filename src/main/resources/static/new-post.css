@@ -55,6 +55,7 @@
   align-items: flex-start;
 }
 .last-name1 {
+  font-size: var(--font-size-29xl);
   box-sizing: border-box;
   width: 530px;
   height: 82px;
@@ -65,6 +66,7 @@
 .rank1 {
   padding: var(--padding-7xs) var(--padding-xl) var(--padding-27xl);
   justify-content: flex-start;
+  font-size: var(--font-size-29xl);
 }
 .div3 {
   position: relative;

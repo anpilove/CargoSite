@@ -3,8 +3,6 @@ package com.CargoSite.models;
 
 import jakarta.persistence.*;
 
-import java.sql.Date;
-
 //CREATE TABLE Post (
 //        ID int(15) NOT NULL AUTO_INCREMENT,
 //        TITLE varchar(255),
@@ -21,7 +19,7 @@ import java.sql.Date;
 public class Post {
 
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "ID")
     private Long id;
     @Column(name = "TITLE")
@@ -31,7 +29,13 @@ public class Post {
     @Column(name = "CONTENT")
     private String content;
     @Column(name = "DATE_CREATE")
-    private Date dateCreated;
+    @Temporal(TemporalType.TIMESTAMP)
+    private String dateCreated;
+
+    public Post() {
+
+    }
+
     public Long getId() {
         return id;
     }
@@ -64,11 +68,11 @@ public class Post {
         this.author = author;
     }
 
-    public Date getDateCreated() {
+    public String getDateCreated() {
         return dateCreated;
     }
 
-    public void setDateCreated(Date dateCreated) {
+    public void setDateCreated(String dateCreated) {
         this.dateCreated = dateCreated;
     }
 
