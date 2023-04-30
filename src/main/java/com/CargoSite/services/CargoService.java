@@ -1,7 +1,7 @@
 package com.CargoSite.services;
 
 
-import com.CargoSite.controller.Cargo;
+import com.CargoSite.models.Cargo;
 import com.CargoSite.repositories.CargoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

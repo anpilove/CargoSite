@@ -1,0 +1,210 @@
+.exit {
+  cursor: pointer;
+  border: 0;
+  padding: 0;
+  background-color: transparent;
+  font-size: var(--font-size-17xl);
+  font-family: var(--font-als-story);
+  color: var(--color-black);
+  text-align: left;
+  display: inline-block;
+}
+.div4,
+.exit {
+  position: relative;
+}
+.autoblog {
+  border-radius: var(--br-7xs);
+  background-color: var(--color-goldenrod-400);
+  display: flex;
+  flex-direction: row;
+  padding: var(--padding-5xs) var(--padding-xs);
+  align-items: center;
+  justify-content: center;
+}
+.search {
+  border: 1px solid var(--color-gray-300);
+  background-color: var(--color-whitesmoke-100);
+  border-radius: var(--br-3xs);
+  box-sizing: border-box;
+  width: 206px;
+  height: 62px;
+  flex-shrink: 0;
+  padding: var(--padding-5xs) var(--padding-3xs) var(--padding-4xs);
+  align-items: center;
+}
+.search,
+.search1,
+.search2 {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+}
+.search1 {
+  border: 1px solid var(--color-gray-300);
+  background-color: var(--color-whitesmoke-100);
+  border-radius: var(--br-3xs);
+  box-sizing: border-box;
+  width: 190px;
+  height: 62px;
+  flex-shrink: 0;
+  padding: var(--padding-5xs) var(--padding-3xs) var(--padding-4xs);
+  align-items: center;
+}
+.search2 {
+  width: 266px;
+}
+.search2,
+.search3,
+.search4 {
+  border: 1px solid var(--color-gray-300);
+  background-color: var(--color-whitesmoke-100);
+  border-radius: var(--br-3xs);
+  box-sizing: border-box;
+  height: 62px;
+  flex-shrink: 0;
+  padding: var(--padding-5xs) var(--padding-3xs) var(--padding-4xs);
+  align-items: center;
+}
+.search3 {
+  width: 143px;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+}
+.search4 {
+  width: 232px;
+}
+.button-search,
+.header,
+.search-group,
+.search4 {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+}
+.button-search {
+  border: 1px solid var(--color-dimgray-400);
+  background-color: var(--color-whitesmoke-200);
+  border-radius: var(--br-3xs);
+  box-sizing: border-box;
+  width: 61.95px;
+  height: 62px;
+  flex-shrink: 0;
+  align-items: center;
+}
+.header,
+.search-group {
+  align-items: flex-start;
+  gap: var(--gap-3xl);
+}
+.header {
+  background-color: var(--color-goldenrod-200);
+  border: 1px solid var(--color-darkslategray);
+  box-sizing: border-box;
+  width: 1920px;
+  height: 126px;
+  flex-shrink: 0;
+  padding: var(--padding-7xl) var(--padding-xl) var(--padding-7xl)
+    var(--padding-41xl);
+  align-items: center;
+  gap: var(--gap-19xl);
+}
+.div5,
+.div6,
+.div7,
+.id2 {
+  position: relative;
+  display: inline-block;
+  flex-shrink: 0;
+}
+.id2 {
+  text-align: center;
+  width: 50px;
+}
+.div5,
+.div6,
+.div7 {
+  width: 250px;
+}
+.div6,
+.div7 {
+  width: 136px;
+}
+.div7 {
+  width: 200px;
+}
+.head-of-elements {
+  background-color: var(--color-khaki);
+  border-bottom: 1px solid var(--color-dimgray-300);
+  box-sizing: border-box;
+  width: 1920px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: row;
+  padding: var(--padding-xs) 331px;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: var(--gap-19xl);
+}
+.div13 {
+  position: relative;
+  display: inline-block;
+  width: 479px;
+  flex-shrink: 0;
+}
+.block-of-elements,
+.element {
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+}
+.element {
+  border-radius: var(--br-sm);
+  background-color: var(--color-palegoldenrod-100);
+  border: 1px solid var(--color-dimgray-100);
+  box-sizing: border-box;
+  width: 1633px;
+  flex-direction: row;
+  padding: var(--padding-17xl) var(--padding-lg);
+  justify-content: center;
+  gap: var(--gap-19xl);
+}
+.block-of-elements {
+  flex-direction: column;
+  padding: 0 0 var(--padding-xs);
+  justify-content: flex-start;
+  gap: var(--gap-11xl);
+  font-family: var(--font-als-lavanda);
+}
+.div16 {
+  position: relative;
+  display: inline-block;
+  width: 533px;
+}
+.main-autoblog,
+.statistics {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+.statistics {
+  width: 1920px;
+  height: 227px;
+  flex-shrink: 0;
+  padding: 0 var(--padding-3xs);
+  box-sizing: border-box;
+  justify-content: center;
+  gap: var(--gap-8xs);
+}
+.main-autoblog {
+  position: relative;
+  background-color: var(--color-gray-100);
+  width: 100%;
+  overflow: hidden;
+  justify-content: flex-start;
+  text-align: left;
+  font-size: var(--font-size-17xl);
+  color: var(--color-black);
+  font-family: var(--font-als-story);
+}

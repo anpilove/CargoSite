@@ -1,4 +1,4 @@
-package com.CargoSite.controller;
+package com.CargoSite.models;
 
 
 import jakarta.persistence.*;
