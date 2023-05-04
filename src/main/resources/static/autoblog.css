@@ -1,0 +1,74 @@
+.button2 {
+  cursor: pointer;
+  border: 0;
+  padding: 0;
+  background-color: transparent;
+  font-size: var(--font-size-29xl);
+  font-family: var(--font-als-story);
+  color: var(--color-black);
+  text-align: center;
+  display: inline-block;
+}
+.button2,
+.div17 {
+  position: relative;
+}
+.frame,
+.header-about2 {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+}
+.frame {
+  border-radius: var(--br-7xs);
+  background-color: var(--color-goldenrod-500);
+  padding: var(--padding-3xs) var(--padding-sm);
+  align-items: flex-start;
+}
+.header-about2 {
+  background-color: var(--color-goldenrod-200);
+  width: 1920px;
+  padding: var(--padding-15xl) 0 var(--padding-15xl) var(--padding-21xl);
+  box-sizing: border-box;
+  align-items: center;
+  gap: 623px;
+}
+.autoblog1,
+.frame-button,
+.frame-parent {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.frame-button {
+  cursor: pointer;
+  border: 0;
+  padding: var(--padding-9xl);
+  background-color: var(--color-goldenrod-300);
+  border-radius: var(--br-lg);
+  flex-direction: row;
+}
+.autoblog1,
+.frame-parent {
+  flex-direction: column;
+}
+.frame-parent {
+  align-self: stretch;
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+  height: 827px;
+  flex-shrink: 0;
+  gap: var(--gap-xl);
+}
+.autoblog1 {
+  position: relative;
+  background-color: var(--color-whitesmoke-300);
+  width: 100%;
+  height: 986px;
+  overflow: hidden;
+  padding: 0 0 var(--padding-xl);
+  box-sizing: border-box;
+  text-align: center;
+  font-size: var(--font-size-29xl);
+  color: var(--color-black);
+  font-family: var(--font-als-story);
+}

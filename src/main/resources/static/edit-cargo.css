@@ -1,0 +1,103 @@
+.button5 {
+  cursor: pointer;
+  border: 0;
+  padding: 0;
+  background-color: transparent;
+  font-size: var(--font-size-29xl);
+  font-family: var(--font-als-story);
+  color: var(--color-black);
+  text-align: center;
+  display: inline-block;
+}
+.button5,
+.div21 {
+  position: relative;
+}
+.frame-div,
+.header-about3 {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.frame-div {
+  border-radius: var(--br-7xs);
+  background-color: var(--color-goldenrod-500);
+  padding: var(--padding-3xs) var(--padding-sm);
+  justify-content: center;
+}
+.header-about3 {
+  background-color: var(--color-goldenrod-200);
+  width: 1920px;
+  padding: var(--padding-6xl) var(--padding-68xl);
+  box-sizing: border-box;
+  justify-content: flex-start;
+  gap: 357px;
+}
+.id3 {
+  font-family: var(--font-als-story);
+  font-size: var(--font-size-29xl);
+}
+.id3,
+.schedule {
+  font-size: var(--font-size-29xl);
+  border: 1px solid var(--color-dimgray-100);
+  background-color: var(--color-gray-200);
+  border-radius: var(--br-3xs);
+  box-sizing: border-box;
+  width: 530px;
+  height: 82px;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  padding: 0 0 0 var(--padding-xl);
+  align-items: flex-start;
+  justify-content: center;
+}
+.div22 {
+  position: relative;
+  font-size: var(--font-size-29xl);
+  font-family: var(--font-als-story);
+  color: var(--color-black);
+  text-align: center;
+}
+.button-edit1,
+.edit-cargo,
+.edit-employee-form1 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.button-edit1 {
+  cursor: pointer;
+  border: 1px solid var(--color-dimgray-100);
+  padding: 0 var(--padding-base);
+  background-color: var(--color-mediumturquoise);
+  border-radius: var(--br-3xs);
+  box-sizing: border-box;
+  height: 82px;
+  flex-shrink: 0;
+  justify-content: center;
+}
+.edit-cargo,
+.edit-employee-form1 {
+  justify-content: flex-start;
+}
+.edit-employee-form1 {
+  border-radius: var(--br-3xs);
+  background-color: var(--color-goldenrod-300);
+  padding: var(--padding-31xl) var(--padding-57xl) var(--padding-9xl);
+  gap: var(--gap-9xl);
+}
+.edit-cargo {
+  position: relative;
+  background-color: var(--color-whitesmoke-300);
+  width: 100%;
+  overflow: hidden;
+  padding: 0 0 var(--padding-xl);
+  box-sizing: border-box;
+  gap: var(--gap-xl);
+  text-align: center;
+  font-size: var(--font-size-29xl);
+  color: var(--color-black);
+  font-family: var(--font-als-story);
+}
