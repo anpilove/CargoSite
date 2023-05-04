@@ -1,94 +1,82 @@
-.div {
-    position: relative;
-}
-.header {
-    background-color: var(--color-goldenrod-200);
-    width: 1920px;
-    height: 128px;
-    flex-shrink: 0;
-    display: flex;
-    flex-direction: row;
-    padding: var(--padding-7xl) var(--padding-122xl);
-    box-sizing: border-box;
-    align-items: center;
-    justify-content: center;
-}
-.div1 {
-    position: relative;
-    font-size: var(--font-size-17xl);
-}
-.email {
-    border: 1px solid var(--color-dimgray-100);
-    background-color: var(--color-aliceblue);
-    border-radius: var(--br-3xs);
-    box-sizing: border-box;
-    width: 412px;
-    height: 70px;
-    flex-shrink: 0;
-    display: flex;
-    flex-direction: row;
-    padding: var(--padding-5xs) var(--padding-9xs) var(--padding-5xs)
-    var(--padding-xl);
-    align-items: center;
-    justify-content: flex-start;
-}
-.div2 {
-    position: relative;
-    font-size: var(--font-size-17xl);
+.button {
+    cursor: pointer;
+    border: 0;
+    padding: 0;
+    background-color: transparent;
+    font-size: var(--font-size-29xl);
     font-family: var(--font-als-story);
     color: var(--color-black);
-    text-align: left;
+    text-align: center;
+    display: inline-block;
 }
-.button-login {
-    cursor: pointer;
-    border: 1px solid var(--color-dimgray-100);
-    padding: 0;
-    background-color: var(--color-aliceblue);
-    border-radius: var(--br-3xs);
-    box-sizing: border-box;
-    width: 202px;
-    height: 74px;
-    flex-shrink: 0;
+.button,
+.div4 {
+    position: relative;
+}
+.header-about,
+.wrapper {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+.wrapper {
+    border-radius: var(--br-7xs);
+    background-color: var(--color-goldenrod-500);
+    padding: var(--padding-3xs) var(--padding-sm);
     justify-content: center;
 }
-.button-login,
-.button-login1,
-.index1,
-.login-form {
+.header-about {
+    background-color: var(--color-goldenrod-200);
+    width: 1920px;
+    padding: var(--padding-6xl) var(--padding-68xl);
+    box-sizing: border-box;
+    justify-content: flex-start;
+    gap: 517px;
+}
+.div5 {
+    position: relative;
+    font-size: var(--font-size-29xl);
+    font-family: var(--font-als-story);
+    color: var(--color-black);
+    text-align: center;
+}
+.button-edit,
+.edit-employee-form,
+.set-role {
     display: flex;
     flex-direction: column;
     align-items: center;
 }
-.login-form {
-    border-radius: var(--br-lg);
-    background-color: var(--color-goldenrod-100);
-    border: 1px solid var(--color-dimgray-200);
-    padding: var(--padding-40xl) var(--padding-17xl) var(--padding-29xl);
-    justify-content: flex-start;
-    gap: var(--gap-41xl);
-}
-.button-login1,
-.index1 {
-    justify-content: center;
-}
-.button-login1 {
+.button-edit {
     cursor: pointer;
     border: 1px solid var(--color-dimgray-100);
-    padding: var(--padding-5xl) var(--padding-21xl);
-    background-color: var(--color-paleturquoise);
+    padding: 0 var(--padding-base);
+    background-color: var(--color-mediumturquoise);
     border-radius: var(--br-3xs);
-    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+    box-sizing: border-box;
+    height: 82px;
+    flex-shrink: 0;
+    justify-content: center;
 }
-.index1 {
+.edit-employee-form,
+.set-role {
+    justify-content: flex-start;
+}
+.edit-employee-form {
+    border-radius: var(--br-3xs);
+    background-color: var(--color-goldenrod-300);
+    padding: var(--padding-31xl) var(--padding-57xl) var(--padding-9xl);
+}
+.set-role {
     position: relative;
     background-color: var(--color-whitesmoke-300);
     width: 100%;
     overflow: hidden;
-    padding: 0 0 var(--padding-81xl);
+    padding: 0 0 var(--padding-xl);
     box-sizing: border-box;
-    gap: var(--gap-31xl);
-    text-align: left;
-    font-size: var(--font-size-39xl);
+    gap: var(--gap-xl);
+    text-align: center;
+    font-size: var(--font-size-29xl);
     color: var(--color-black);
     font-family: var(--font-als-story);
 }
