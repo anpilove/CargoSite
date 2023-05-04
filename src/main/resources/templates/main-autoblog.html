@@ -22,60 +22,52 @@
   </head>
   <body>
     <div class="main-autoblog">
-      <div class="header">
+      <div class="header4">
         <a th:href="@{'/'}" style="text-decoration: none">
-          <button class="exit">Выход</button>
+          <button class="exit2">Выйти</button>
         </a>
         <a th:href="@{'/main_cargo'}" style="text-decoration: none">
-          <button class="exit">Склад</button>
+          <button class="exit2">Склад</button>
         </a>
-        <a th:href="@{'/autoblog_main'}" style="text-decoration: none">
-          <div class="autoblog">
-            <div class="div4">Автоблог</div>
-          </div>
-        </a>
-        <form class="search-group">
-          <input class="search" type="text" placeholder="Поиск по дате" required />
+        <div class="title-autoblog-with-button">
+          <a th:href="@{'/autoblog_main'}" style="text-decoration: none">
+            <div class="autoblog2">
+              <div class="div45">Автоблог</div>
+            </div>
+          </a>
+        </div>
+        <form class="search-group2">
+          <input class="search7" type="text" placeholder="Поиск" required />
 
-          <input class="search1" type="text" placeholder="По названию" required />
-
-          <input class="search2" type="text" placeholder="По дате и названию" required />
-
-          <input class="search3" type="text" placeholder="По тексту" required />
-
-          <input class="search4" type="text" placeholder="По дате и тексту" required />
-
-          <input class="search3" type="text" placeholder="По всему" required />
-
-          <input class="button-search" type="submit" value="Найти"/>
+          <select class="selector-search1"></select>
+          <input type="submit" class="button-search2" value="Найти">
+            <img
+              class="icon-search-outline1"
+              alt=""
+              src="/public/-icon-search-outline1.svg"
+            />
         </form>
       </div>
 
-      <table id="1" class="block-of-elements">
-        <thead>
-        <tr class="head-of-elements">
-          <th class="id2" scope="col">ID</th>
-          <th class="div5" scope="col">Название</th>
-          <th class="div6" scope="col">Автор</th>
-          <th class="div7" scope="col">Дата</th>
-          <th class="div5" scope="col">Текст</th>
-        </tr>
-        </thead>
+      <table id="1" class="block-of-elements2">
         <tbody class="class_for_tbody tbody">
-        <tr th:each="Post: ${listPost}" class="element tr">
-          <th scope="row" class="id2 th" th:text="${Post.id}">ID</th>
-          <th scope="row" class="div5 th" th:text="${Post.title}">Название</th>
-          <th scope="row" class="div4 th" th:text="${Post.author}">Автор</th>
-          <th scope="row" class="div7 th" th:text="${Post.dateCreated}">Дата</th>
-          <th scope="row" class="div13 th" th:text="${Post.content}">Текст</th>
+        <tr th:each="Post: ${listPost}" class="element2 tr">
+          <td class="header-of-message-and-buttons">
+              <div class="header-of-message">
+                <th scope="row" class="div46 th" th:text="${Post.author}">Автор</th>
+                <th scope="row" class="div47 th" th:text="${Post.title}">Название</th>
+                <th scope="row" class="div48 th" th:text="${Post.dateCreated}">Дата</th>
+              </div>
+          </td>
+          <th scope="row" class="div49 th" th:text="${Post.content}">Текст</th>
         </tr>
         </tbody>
       </table>
-
-      <div class="statistics">
-        <div class="div4">Количество записей: <p th:text="${listPost.size()}"></p></div>
-        <div class="div4">Первый пост: <p th:text="${firstDate}"></p></div>
-        <div class="div16">Последний пост: <p th:text="${latestDate}"></p></div>
+      
+      <div class="statistics2">
+        <div class="div49">Количество записей: <p th:text="${listPost.size()}"></p></div>
+        <div class="div49">Первый пост: <p th:text="${firstDate}"></p></div>
+        <div class="div49">Последний пост: <p th:text="${latestDate}"></p></div>
       </div>
     </div>
     <div class="container">

@@ -1,12 +1,8 @@
-.div55 {
+.div41 {
   position: relative;
 }
-.header4 {
-  background: radial-gradient(
-    50% 50%at 50% 50%,
-    #f5d76a 14.27%,
-    #ffb800 75.55%
-  );
+.header3 {
+  background-color: var(--color-goldenrod-200);
   width: 1920px;
   height: 128px;
   flex-shrink: 0;
@@ -17,12 +13,11 @@
   align-items: center;
   justify-content: center;
 }
-.div56 {
+.div42 {
   position: relative;
   font-size: var(--font-size-17xl);
 }
 .email {
-  font-size: var(--font-size-17xl);
   border: 1px solid var(--color-dimgray-100);
   background-color: var(--color-aliceblue);
   border-radius: var(--br-3xs);
@@ -37,7 +32,7 @@
   align-items: center;
   justify-content: flex-start;
 }
-.div57 {
+.div43 {
   position: relative;
   font-size: var(--font-size-17xl);
   font-family: var(--font-als-story);
@@ -86,7 +81,7 @@
 }
 .index1 {
   position: relative;
-  background-color: var(--color-white);
+  background-color: var(--color-whitesmoke-300);
   width: 100%;
   overflow: hidden;
   padding: 0 0 var(--padding-81xl);

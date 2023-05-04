@@ -22,62 +22,68 @@
   </head>
   <body>
     <div class="main-cargo">
-      <div class="header3">
+      <div class="header2">
         <a th:href="@{'/'}">
-          <button class="button7">Выход</button>
+           <button class="cargo">Выйти</button>
         </a>
         <a th:href="@{'/main_cargo'}" style="text-decoration: none">
-          <button class="wrapper3">
-            <div class="div38">Склад</div>
+          <button class="cargo-wrapper">
+            <div class="cargo">Склад</div>
           </button>
         </a>
         <a th:href="@{'/autoblog'}">
-          <button class="button7">Автоблог</button>
+          <button class="cargo">Автоблог</button>
         </a>
-        <form class="search-group2">
-          <input th:value="${keyword}" name="keyword" id="keyword" class="search12" type="text" placeholder="Поиск" required />
+        <form class="search-group1">
+          <input th:value="${keyword}" name="keyword" id="keyword" class="search6" type="text" placeholder="Поиск" required />
 
-          <input type="submit" class="button-search2" value="Найти"/>
+          <select class="selector-search" required></select>
+          <input type="submit" class="button-search1" value="Найти">
+            <img
+              class="icon-search-outline"
+              alt=""
+              src="/public/-icon-search-outline.svg"
+            />
         </form>
       </div>
 
-      <table id="1" class="block-of-elements2">
+      <table id="1" class="block-of-elements1">
         <thead>
-        <tr class="head-of-elements2">
-          <th class="id6" scope="col">ID</th>
-          <th class="div39" scope="col">Название</th>
-          <th class="div40" scope="col">Состав</th>
-          <th class="div39" scope="col">Город отправки</th>
-          <th class="div39" scope="col">Город прибытия</th>
-          <th class="div43" scope="col">Дата отправки</th>
-          <th class="div44" scope="col">Дата прибытия</th>
-          <td class="div44"><a th:href="@{'/new_cargo'}">
+        <tr class="head-of-elements1">
+          <th class="id5" scope="col">ID</th>
+          <th class="div25" scope="col">Название</th>
+          <th class="div26" scope="col">Состав</th>
+          <th class="div25" scope="col">Город отправки</th>
+          <th class="div25" scope="col">Город прибытия</th>
+          <th class="div29" scope="col">Дата отправки</th>
+          <th class="div30" scope="col">Дата прибытия</th>
+          <td class="div30"><a th:href="@{'/new_cargo'}">
             <button class="icon-plus1">
-              <img class="vector-icon1" alt="" src="/public/vector.svg" />
+              <img class="vector-icon1" alt="" src="/public/vector1.svg" />
             </button>
           </a></td>
         </tr>
         </thead>
         <tbody class="class_for_tbody tbody">
-        <tr th:each="Cargo: ${listCargo}" class="element2 tr">
-          <th scope="row" class="id6 th" th:text="${Cargo.ID}">ID</th>
-          <th scope="row" class="div39 th" th:text="${Cargo.nameLoad}">Название</th>
-          <th scope="row" class="div40 th" th:text="${Cargo.content}">Состав</th>
-          <th scope="row" class="div39 th" th:text="${Cargo.cityFrom}">Город отправки</th>
-          <th scope="row" class="div39 th" th:text="${Cargo.cityTo}">Город прибытия</th>
-          <th scope="row" class="div43 th" th:text="${Cargo.dataInput}">Дата отправки</th>
-          <th scope="row" class="div40 th" th:text="${Cargo.dataOutput}">Дата прибытия</th>
-          <td class="td">
+        <tr th:each="Cargo: ${listCargo}" class="element1 tr">
+          <th scope="row" class="id5 th" th:text="${Cargo.ID}">ID</th>
+          <th scope="row" class="div25 th" th:text="${Cargo.nameLoad}">Название</th>
+          <th scope="row" class="div26 th" th:text="${Cargo.content}">Состав</th>
+          <th scope="row" class="div25 th" th:text="${Cargo.cityFrom}">Город отправки</th>
+          <th scope="row" class="div25 th" th:text="${Cargo.cityTo}">Город прибытия</th>
+          <th scope="row" class="div29 th" th:text="${Cargo.dataInput}">Дата отправки</th>
+          <th scope="row" class="div26 th" th:text="${Cargo.dataOutput}">Дата прибытия</th>
+          <td class=" td">
             <a th:href="@{'edit_cargo/'+ ${Cargo.ID}}">
               <button class="icon-edit-2-outline1">
-                <img class="group-icon2" alt="" src="/public/group.svg" />
+                <img class="group-icon2" alt="" src="/public/group2.svg" />
               </button>
             </a>
           </td>
           <td class="td">
             <a th:href="@{'delete_cargo/'+ ${Cargo.ID}}">
               <button class="icon-trash-2-outline1">
-                <img class="group-icon3" alt="" src="/public/group1.svg" />
+                <img class="group-icon3" alt="" src="/public/group3.svg" />
               </button>
             </a>
           </td>
@@ -85,10 +91,10 @@
         </tbody>
       </table>
 
-      <div class="statistics2">
-        <div class="div52">Количество записей: <p th:text="${listCargo.size()}"></p></div>
-        <div class="div52">Первая отправка: <p th:text="${firstInputDate}"></p></div>
-        <div class="div54">Последняя отправка: <p th:text="${latestInputDate}"></p></div>
+      <div class="statistics1">
+        <div class="div38">Количество записей: <p th:text="${listCargo.size()}"></p></div>
+        <div class="div38">Первая отправка: <p th:text="${firstInputDate}"></p></div>
+        <div class="div40">Последняя отправка: <p th:text="${latestInputDate}"></p></div>
       </div>
     </div>
 

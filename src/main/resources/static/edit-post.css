@@ -3,51 +3,51 @@
   border: 0;
   padding: 0;
   background-color: transparent;
-  position: absolute;
-  top: 34px;
-  left: 87px;
   font-size: var(--font-size-29xl);
   font-family: var(--font-als-story);
   color: var(--color-black);
   text-align: center;
   display: inline-block;
 }
-.div {
+.button,
+.div13 {
   position: relative;
 }
 .wrapper {
-  position: absolute;
-  top: 34px;
-  left: 597px;
   border-radius: var(--br-7xs);
-  background-color: var(--color-goldenrod-400);
+  background-color: var(--color-goldenrod-500);
   display: flex;
   flex-direction: row;
-  padding: var(--padding-5xs) var(--padding-xs);
-  align-items: flex-start;
-  justify-content: flex-start;
+  padding: var(--padding-3xs) var(--padding-sm);
+  align-items: center;
+  justify-content: center;
+}
+.header-about,
+.id1 {
+  box-sizing: border-box;
 }
 .header-about {
-  position: relative;
   background-color: var(--color-goldenrod-200);
   width: 1920px;
-  height: 126px;
-  flex-shrink: 0;
+  display: flex;
+  flex-direction: row;
+  padding: var(--padding-6xl) var(--padding-68xl);
+  align-items: center;
+  justify-content: flex-start;
+  gap: 335px;
 }
-.id {
+.id1 {
   font-family: var(--font-als-story);
   font-size: var(--font-size-29xl);
-  box-sizing: border-box;
   width: 530px;
   height: 82px;
   flex-shrink: 0;
   padding: 0 0 0 var(--padding-xl);
   justify-content: center;
 }
-.id,
+.id1,
 .last-name,
 .rank {
-  font-size: var(--font-size-29xl);
   border: 1px solid var(--color-dimgray-100);
   background-color: var(--color-gray-200);
   border-radius: var(--br-3xs);
@@ -56,7 +56,6 @@
   align-items: flex-start;
 }
 .last-name {
-  font-size: var(--font-size-29xl);
   box-sizing: border-box;
   width: 530px;
   height: 82px;
@@ -68,7 +67,7 @@
   padding: var(--padding-7xs) var(--padding-xl) var(--padding-27xl);
   justify-content: flex-start;
 }
-.div1 {
+.div14 {
   position: relative;
   font-size: var(--font-size-29xl);
   font-family: var(--font-als-story);
@@ -105,7 +104,7 @@
 }
 .edit-post {
   position: relative;
-  background-color: var(--color-gray-100);
+  background-color: var(--color-whitesmoke-300);
   width: 100%;
   overflow: hidden;
   padding: 0 0 var(--padding-xl);

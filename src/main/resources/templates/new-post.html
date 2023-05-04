@@ -27,11 +27,11 @@
           <button class="button1">Главная</button>
         </a>
         <div class="container">
-          <div class="div2">Добавить новую запись в автоблог</div>
+          <div class="div15">Добавить новую запись в автоблог</div>
         </div>
       </div>
       <form th:action="@{/save_post}" th:object="${Post}" class="new-employee-form">
-        <input th:field="*{id}" class="id1" type="text" placeholder="ID записи" />
+        <input th:field="*{id}" class="id2" type="text" placeholder="ID записи" />
 
         <input th:field="*{title}" class="last-name1" type="text" placeholder="Название записи" />
 
@@ -42,7 +42,7 @@
         <input th:field="*{content}" class="rank1" type="text" placeholder="Текст записи" />
 
         <button type="submit" class="button-add">
-          <div class="div3">Добавить</div>
+          <div class="div16">Добавить</div>
         </button>
       </form>
     </div>

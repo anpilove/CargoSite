@@ -22,10 +22,10 @@
   </head>
   <body>
     <div class="index1">
-      <div class="header4">
-        <div class="div55">Склад грузов</div>
+      <div class="header3">
+        <div class="div41">Склад грузов</div>
       </div>
-      <div class="div56">
+      <div class="div42">
         Здравствуйте! Для регистрации нажмите на кнопку “Регистрация”
       </div>
       <form th:action="@{'/login'}" th:object="${UserCargo}" class="login-form">
@@ -34,12 +34,12 @@
         <input th:field="*{password}" class="email" type="password" placeholder="Пароль" required />
 
         <button type="submit" class="button-login">
-          <div class="div57">Войти</div>
+          <div class="div43">Войти</div>
         </button>
       </form>
       <a th:href="@{'/registry'}" style="text-decoration: none">
         <button class="button-login1">
-          <div class="div57">Регистрация</div>
+          <div class="div43">Регистрация</div>
         </button>
       </a>
     </div>

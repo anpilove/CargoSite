@@ -27,11 +27,11 @@
           <button class="button">Главная</button>
         </a>
         <div class="wrapper">
-          <div class="div">Редактировать запись автоблога</div>
+          <div class="div13">Редактировать запись автоблога</div>
         </div>
       </div>
       <form th:action="@{/save_post}" th:object="${Post}" class="edit-employee-form">
-        <input th:field="*{id}" class="id" type="text" placeholder="ID записи" />
+        <input th:field="*{id}" class="id1" type="text" placeholder="ID записи" />
 
         <input th:field="*{title}" class="last-name" type="text" placeholder="Название записи" />
 
@@ -42,7 +42,7 @@
         <input th:field="*{content}" class="rank" type="text" placeholder="Текст записи" />
 
         <button type="submit" class="button-edit">
-          <div class="div1">Редактировать</div>
+          <div class="div14">Редактировать</div>
         </button>
       </form>
     </div>

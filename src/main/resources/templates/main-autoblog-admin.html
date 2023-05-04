@@ -21,80 +21,70 @@
     <title>Автоблог</title>
   </head>
   <body>
-    <div class="main-autoblog-admin">
-      <div class="header1">
+    <div class="main-autoblog-admin1">
+      <div class="header5">
         <a th:href="@{'/'}" style="text-decoration: none">
-          <button class="exit1">Выход</button>
+          <button class="exit3">Выйти</button>
         </a>
         <a th:href="@{'/main_cargo'}" style="text-decoration: none">
-          <button class="exit1">Склад</button>
+          <button class="exit3">Склад</button>
         </a>
-        <a th:href="@{'/autoblog_main_admin'}" style="text-decoration: none">
-          <div class="autoblog1">
-            <div class="div17">Автоблог</div>
-          </div>
-        </a>
-        <form class="search-group1">
-          <input class="search6" type="text" placeholder="Поиск по дате" required />
+        <div class="title-autoblog-with-button1">
+          <a th:href="@{'/autoblog_main_admin'}" style="text-decoration: none">
+            <div class="autoblog3">
+              <div class="div53">Автоблог</div>
+            </div>
+          </a>
+          <a th:href="@{'/new_post'}">
+            <button class="icon-plus2">
+              <img class="vector-icon2" alt="" src="/public/vector2.svg" />
+            </button>
+          </a>
+        </div>
+        <form class="search-group3">
+          <input class="search8" type="text" placeholder="Поиск" required />
 
-          <input class="search7" type="text" placeholder="По названию" required />
-
-          <input class="search8" type="text" placeholder="По дате и названию" required />
-
-          <input class="search9" type="text" placeholder="По тексту" required />
-
-          <input class="search10" type="text" placeholder="По дате и тексту" required />
-
-          <input class="search9" type="text" placeholder="По всему" required />
-
-          <input class="button-search1" type="submit" value="Найти" />
+          <select class="selector-search2"></select>
+          <input type="submit" value="Найти" class="button-search3">
+            <img
+              class="icon-search-outline2"
+              alt=""
+              src="/public/-icon-search-outline1.svg"
+            />
         </form>
       </div>
 
-      <table id="1" class="block-of-elements1">
-        <thead>
-        <tr class="head-of-elements1">
-          <th class="id3" scope="col">ID</th>
-          <th class="div18" scope="col">Название</th>
-          <th class="div19" scope="col">Автор</th>
-          <th class="div20" scope="col">Дата</th>
-          <th class="div18" scope="col">Текст</th>
-          <td class="div55"><a th:href="@{'/new_post'}">
-            <button class="icon-plus">
-              <img class="vector-icon" alt="" src="/public/vector.svg" />
-            </button>
-          </a></td>
-        </tr>
-        </thead>
+      <table id="1" class="block-of-elements3">
         <tbody class="class_for_tbody tbody">
-        <tr th:each="Post: ${listPost}" class="element1 tr">
-          <th scope="row" class="id3 th" th:text="${Post.id}">ID</th>
-          <th scope="row" class="div18 th" th:text="${Post.title}">Название</th>
-          <th scope="row" class="div17 th" th:text="${Post.author}">Автор</th>
-          <th scope="row" class="div20 th" th:text="${Post.dateCreated}">Дата</th>
-          <th scope="row" class="div26 th" th:text="${Post.content}">Текст</th>
-          <td class="td">
-            <a th:href="@{'edit_post/'+ ${Post.id}}">
-              <button class="icon-edit-2-outline">
-                <img class="group-icon" alt="" src="/public/group.svg" />
-              </button>
-            </a>
+        <tr th:each="Post: ${listPost}" class="element3 tr">
+          <td class="header-of-message-and-buttons1">
+              <div class="header-of-message1">
+                <th scope="row" class="div54 th" th:text="${Post.author}">Автор</th>
+                <th scope="row" class="div55 th" th:text="${Post.title}">Название</th>
+                <th scope="row" class="div56 th" th:text="${Post.dateCreated}">Дата</th>
+              </div>
+            <div class="buttons-to-edit-element">
+              <a th:href="@{'edit_post/'+ ${Post.id}}">
+                <button class="icon-edit-2-outline2">
+                  <img class="group-icon4" alt="" src="/public/group4.svg" />
+                </button>
+              </a>
+              <a th:href="@{'delete_post/'+ ${Post.id}}">
+                <button class="icon-trash-2-outline2">
+                  <img class="group-icon5" alt="" src="/public/group5.svg" />
+                </button>
+              </a>
+            </div>
           </td>
-          <td class="td">
-            <a th:href="@{'delete_post/'+ ${Post.id}}">
-              <button class="icon-trash-2-outline">
-                <img class="group-icon1" alt="" src="/public/group1.svg" />
-              </button>
-            </a>
-          </td>
+          <th scope="row" class="div57 th" th:text="${Post.content}">Текст</th>
         </tr>
         </tbody>
       </table>
 
-      <div class="statistics1">
-        <div class="div17">Количество записей: <p th:text="${listPost.size()}"></div>
-        <div class="div17">Первая отправка: <p th:text="${firstDate}"></p></div>
-        <div class="div29">Последняя отправка: <p th:text="${latestDate}"></p></div>
+      <div class="statistics3">
+        <div class="div57">Количество записей: <p th:text="${listPost.size()}"></p></div>
+        <div class="div57">Первая отправка: <p th:text="${firstDate}"></p></div>
+        <div class="div57">Последняя отправка: <p th:text="${latestDate}"></p></div>
       </div>
     </div>
 

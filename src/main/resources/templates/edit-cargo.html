@@ -27,11 +27,11 @@
           <button class="button5">Главная</button>
         </a>
         <div class="frame-div">
-          <div class="div34">Редактировать запись о грузе</div>
+          <div class="div21">Редактировать запись о грузе</div>
         </div>
       </div>
       <form th:action="@{/save_cargo}" th:object="${Cargo}" class="edit-employee-form1">
-        <input th:field="*{ID}" class="id4" type="text" placeholder="ID груза" />
+        <input th:field="*{ID}" class="id3" type="text" placeholder="ID груза" />
 
         <input th:field="*{nameLoad}" class="schedule" type="text" placeholder="Название груза" />
 
@@ -54,7 +54,7 @@
         <input th:field="*{dataOutput}" class="schedule" type="text" placeholder="Дата прибытия груза" />
 
         <button type="submit" class="button-edit1">
-          <div class="div35">Редактировать</div>
+          <div class="div22">Редактировать</div>
         </button>
       </form>
     </div>
