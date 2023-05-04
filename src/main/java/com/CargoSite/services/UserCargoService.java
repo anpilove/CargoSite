@@ -20,7 +20,6 @@ public class UserCargoService {
     }
 
     public void save(UserCargo usercargo){
-        repo.save(usercargo);
         if (!repo.existsByLogin(usercargo.getLogin())) {
             repo.save(usercargo);
         }
@@ -34,4 +33,7 @@ public class UserCargoService {
         return repo.existsByLoginAndPassword(usercargo.getLogin(), usercargo.getPassword());
     }
 
+    public int getRoleByLogin(String login) {
+        return repo.getUserCargoByLogin(login).getRole();
+    }
 }

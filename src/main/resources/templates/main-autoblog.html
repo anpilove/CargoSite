@@ -76,7 +76,7 @@
       data = []
       let tr = document.getElementsByClassName('tr');
       for (let i = 0; i < tr.length; i++) {
-        let t = tr[i].getElementsByClassName('th')[2].textContent;
+        let t = tr[i].getElementsByClassName('th')[0].textContent;
         if (!labels.includes(t)) {
           let ind = Math.max(labels.length, 0);
           labels[ind] = t;

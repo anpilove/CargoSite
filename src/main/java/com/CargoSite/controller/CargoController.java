@@ -51,6 +51,7 @@ public class CargoController {
     @GetMapping(value="/login")
     public String login(@ModelAttribute("UserCargo") UserCargo usercargo, HttpSession session){
         if (userCargoService.checkLoginAndPassword(usercargo)) {
+            usercargo.setRole(userCargoService.getRoleByLogin(usercargo.getLogin()));
             session.setAttribute("UserCargo", usercargo);
             return "redirect:/main_cargo";}
         else {return "redirect:/";}
@@ -109,10 +110,10 @@ public class CargoController {
 
     @RequestMapping(value="/check") // надо дописать проверку
     public String login(@SessionAttribute("UserCargo") UserCargo usercargo){
-//        if (usercargo.getRole() == 1) { // если ранг == 1, тогда это админ и мы его пускаем
+        if (usercargo.getRole() == 1) { // если ранг == 1, тогда это админ и мы его пускаем
             return "redirect:/autoblog_main_admin";
-//        }
-//        else {return "redirect:/autoblog";}
+        }
+        else {return "redirect:/autoblog";}
     }
 
     @GetMapping("/autoblog_main")

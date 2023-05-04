@@ -1,7 +1,6 @@
 package com.CargoSite.repositories;
 
 import com.CargoSite.models.UserCargo;
-import com.CargoSite.services.PostService;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 
@@ -12,12 +11,12 @@ public interface UserCargoRepository extends JpaRepository<UserCargo, Integer > 
     List<UserCargo> search(String keyword);
 
 
-    PostService findByLogin(String login);
-
     void deleteByLogin(String login);
 
     boolean existsByLoginAndPassword(String login, String password);
 
     boolean existsByLogin(String login);
+
+    UserCargo getUserCargoByLogin(String login);
 
 }
