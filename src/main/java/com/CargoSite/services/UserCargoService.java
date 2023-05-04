@@ -21,6 +21,9 @@ public class UserCargoService {
 
     public void save(UserCargo usercargo){
         repo.save(usercargo);
+        if (!repo.existsByLogin(usercargo.getLogin())) {
+            repo.save(usercargo);
+        }
     }
 
     public void delete(String login){

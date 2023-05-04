@@ -17,4 +17,7 @@ public interface UserCargoRepository extends JpaRepository<UserCargo, Integer > 
     void deleteByLogin(String login);
 
     boolean existsByLoginAndPassword(String login, String password);
+
+    boolean existsByLogin(String login);
+
 }
