@@ -22,13 +22,15 @@
 <body>
 <div class="set-role">
     <div class="header-about">
-        <button class="button">Главная</button>
+        <a th:href="@{'/'}">
+            <button class="button">Главная</button>
+        </a>
         <div class="wrapper">
             <div class="div4">Получить доступ</div>
         </div>
     </div>
     <form th:action="@{'/setrole'}" class="edit-employee-form">
-            <button class="button-edit">
+            <button type="submit" class="button-edit">
                 <div class="div5">Получить админа</div>
             </button>
     </form>

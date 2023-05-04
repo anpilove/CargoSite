@@ -52,6 +52,12 @@ public class CargoController {
         return "set-role";
     }
 
+    @RequestMapping(value = "/setrole")
+    public String setRole(@SessionAttribute("UserCargo") UserCargo usercargo) {
+        usercargo.setRole(1);
+        return "redirect:/autoblog_main_admin";
+    }
+
     @GetMapping(value="/login")
     public String login(@ModelAttribute("UserCargo") UserCargo usercargo, HttpSession session){
         if (userCargoService.checkLoginAndPassword(usercargo)) {
