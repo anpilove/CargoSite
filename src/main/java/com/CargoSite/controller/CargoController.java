@@ -108,17 +108,51 @@ public class CargoController {
         return "autoblog";
     }
 
-    @RequestMapping(value="/check") // надо дописать проверку
+    @RequestMapping(value="/check")
     public String login(@SessionAttribute("UserCargo") UserCargo usercargo){
-        if (usercargo.getRole() == 1) { // если ранг == 1, тогда это админ и мы его пускаем
+        if (usercargo.getRole() == 1) {
             return "redirect:/autoblog_main_admin";
         }
         else {return "redirect:/autoblog";}
     }
 
     @GetMapping("/autoblog_main")
-    public String viewAutoblogMainPage(@Param("keyword") String keyword, Model model) {
+    public String viewAutoblogMainPage(@RequestParam(name = "search-criteria", required = false) String searchCriteria,
+                                       @RequestParam(name = "keyword", required = false) String keyword,
+                                       Model model) {
         List<Post> listPost = postService.listAll(keyword);
+        System.out.println(searchCriteria);
+        if ( searchCriteria != null) {
+            switch(searchCriteria) {
+                case "date":
+                    System.out.println("date");
+                    listPost = postService.listByDate(keyword);
+                    break;
+                case "title":
+                    System.out.println("title");
+                    listPost = postService.listByTitle(keyword);
+                    break;
+                case "date-and-title":
+                    System.out.println("date-and-title");
+                    listPost = postService.listByDateAndTitle(keyword);
+                    break;
+                case "text":
+                    System.out.println("text");
+                    listPost = postService.listByText(keyword);
+                    break;
+                case "date-and-text":
+                    System.out.println("date-and-text");
+                    listPost = postService.listByDateAndText(keyword);
+                    break;
+                case "all-criteria":
+                    listPost = postService.listAll(keyword);
+                    break;
+                default:
+                    listPost = postService.listAll(keyword);
+            }
+        }
+
+
         model.addAttribute("listPost", listPost);
         model.addAttribute("keyword", keyword);
 
@@ -139,8 +173,42 @@ public class CargoController {
     }
 
     @GetMapping("/autoblog_main_admin")
-    public String viewAutoblogMainAdminPage(@Param("keyword") String keyword, Model model) {
+    public String viewAutoblogMainAdminPage(@RequestParam(name = "search-criteria", required = false) String searchCriteria,
+                                            @RequestParam(name = "keyword", required = false) String keyword,
+                                            Model model) {
         List<Post> listPost = postService.listAll(keyword);
+        System.out.println(searchCriteria);
+        if ( searchCriteria != null) {
+            switch(searchCriteria) {
+                case "date":
+                    System.out.println("date");
+                    listPost = postService.listByDate(keyword);
+                    break;
+                case "title":
+                    System.out.println("title");
+                    listPost = postService.listByTitle(keyword);
+                    break;
+                case "date-and-title":
+                    System.out.println("date-and-title");
+                    listPost = postService.listByDateAndTitle(keyword);
+                    break;
+                case "text":
+                    System.out.println("text");
+                    listPost = postService.listByText(keyword);
+                    break;
+                case "date-and-text":
+                    System.out.println("date-and-text");
+                    listPost = postService.listByDateAndText(keyword);
+                    break;
+                case "all-criteria":
+                    listPost = postService.listAll(keyword);
+                    break;
+                default:
+                    listPost = postService.listAll(keyword);
+            }
+        }
+
+
         model.addAttribute("listPost", listPost);
         model.addAttribute("keyword", keyword);
 

@@ -19,4 +19,5 @@ public interface UserCargoRepository extends JpaRepository<UserCargo, Integer > 
 
     UserCargo getUserCargoByLogin(String login);
 
+
 }

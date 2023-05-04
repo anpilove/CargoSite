@@ -41,11 +41,20 @@
             </button>
           </a>
         </div>
-        <form class="search-group3">
-          <input class="search8" type="text" placeholder="Поиск" required />
 
-          <select class="selector-search2"></select>
-          <input type="submit" value=" " class="button-search3 icon-search-outline2">
+
+        <form class="search-group3">
+
+          <label for="search-criteria">Выберите критерий поиска:</label>
+          <select id="search-criteria" name="search-criteria" required>
+            <option value="date">Поиск по дате записи</option>
+            <option value="title">Поиск по названию</option>
+            <option value="date-and-title">Поиск по дате и названию</option>
+            <option value="text">Поиск по тексту записи</option>
+            <option value="date-and-text">Поиск по дате и тексту записи</option>
+            <option value="all-criteria">Поиск по всем критериям сразу</option>
+          </select>
+          <input th:value="${keyword}" name="keyword" id="keyword" class="search8" type="text" placeholder="Поиск" required />
         </form>
       </div>
 

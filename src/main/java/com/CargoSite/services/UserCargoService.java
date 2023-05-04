@@ -36,4 +36,8 @@ public class UserCargoService {
     public int getRoleByLogin(String login) {
         return repo.getUserCargoByLogin(login).getRole();
     }
+
+
+
+
 }
