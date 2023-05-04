@@ -232,7 +232,7 @@
 }
 .statistics1 {
   width: 1920px;
-  height: 227px;
+  height: 600px;
   flex-shrink: 0;
   padding: 0 var(--padding-3xs);
   box-sizing: border-box;
