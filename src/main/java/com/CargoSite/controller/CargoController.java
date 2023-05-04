@@ -47,6 +47,10 @@ public class CargoController {
         userCargoService.save(usercargo);
         return "redirect:/";
     }
+    @GetMapping("/set_role")
+    public String showSetRole(@SessionAttribute("UserCargo") UserCargo usercargo) {
+        return "set-role";
+    }
 
     @GetMapping(value="/login")
     public String login(@ModelAttribute("UserCargo") UserCargo usercargo, HttpSession session){
