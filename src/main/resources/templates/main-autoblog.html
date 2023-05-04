@@ -52,12 +52,10 @@
       <table id="1" class="block-of-elements2">
         <tbody class="class_for_tbody tbody">
         <tr th:each="Post: ${listPost}" class="element2 tr">
-          <td class="header-of-message-and-buttons">
-              <div class="header-of-message">
+          <td class="header-of-message-and-buttons header-of-message">
                 <th scope="row" class="div46 th" th:text="${Post.author}">Автор</th>
                 <th scope="row" class="div47 th" th:text="${Post.title}">Название</th>
                 <th scope="row" class="div48 th" th:text="${Post.dateCreated}">Дата</th>
-              </div>
           </td>
           <th scope="row" class="div49 th" th:text="${Post.content}">Текст</th>
         </tr>

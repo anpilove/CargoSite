@@ -50,6 +50,7 @@
 .rank1 {
   border: 1px solid var(--color-dimgray-100);
   background-color: var(--color-gray-200);
+  font-size: var(--font-size-29xl);
   border-radius: var(--br-3xs);
   display: flex;
   flex-direction: column;

@@ -33,6 +33,7 @@
   padding: 0 var(--padding-3xs);
 }
 .search6 {
+  font-size: var(--font-size-17xl);
   box-sizing: border-box;
   width: 300px;
   height: 62px;

@@ -58,11 +58,11 @@
         <tbody class="class_for_tbody tbody">
         <tr th:each="Post: ${listPost}" class="element3 tr">
           <td class="header-of-message-and-buttons1">
-              <div class="header-of-message1">
-                <th scope="row" class="div54 th" th:text="${Post.author}">Автор</th>
-                <th scope="row" class="div55 th" th:text="${Post.title}">Название</th>
-                <th scope="row" class="div56 th" th:text="${Post.dateCreated}">Дата</th>
-              </div>
+            <div class="header-of-message1">
+              <div class="div54 th" th:text="${Post.author}">Автор</div>
+              <div class="div55 th" th:text="${Post.title}">Название</div>
+              <div class="div56 th" th:text="${Post.dateCreated}">Дата</div>
+            </div>
             <div class="buttons-to-edit-element">
               <a th:href="@{'edit_post/'+ ${Post.id}}">
                 <button class="icon-edit-2-outline2">
